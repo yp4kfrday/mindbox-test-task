@@ -35,16 +35,18 @@ const todoSlice = createSlice({
             state.completedList = state.completedList.filter(todo => todo.id !== action.payload);
         },
         toggleTodoComplete: (state, action: PayloadAction<string>) => {
-            const toggledTodo = state.list.find(todo => todo.id === action.payload);
-            if (toggledTodo) {
-              toggledTodo.completed = !toggledTodo.completed;
-          
-              if (toggledTodo.completed) {
-                state.completedList.push(toggledTodo);
-                state.list = state.list.filter(todo => todo.id !== action.payload);
-              }
+          const toggledTodo = state.list.find(todo => todo.id === action.payload);
+          if (toggledTodo) {
+            toggledTodo.completed = !toggledTodo.completed;
+        
+            if (toggledTodo.completed) {
+              state.completedList.push(toggledTodo);
+              state.list = state.list.filter(todo => todo.id !== action.payload);
             }
-          },
+          } else {
+            // Задача с указанным id не найдена, ничего не делаем
+          }
+        },
     },
 });
 
