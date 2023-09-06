@@ -1,7 +1,7 @@
 .container {
     display: flex;
     width: 95%;
-    margin-top: 10px;
+    margin-top: 20px;
     justify-content: space-between;
     align-items: flex-start;
 }
@@ -20,3 +20,25 @@
     font-size: 30px;
     color: white;
 }
+
+@media (max-width: 1100px) {
+    .todos {
+      width: 45%;
+    }
+
+    .container {
+        padding: 10px;
+      }
+  }
+
+  @media (max-width: 700px) {
+    .container {
+      width: 95%;
+      flex-direction: column;
+    }
+
+    .todos {
+      width: 95%;
+      margin-bottom: 10px;
+    }
+  }

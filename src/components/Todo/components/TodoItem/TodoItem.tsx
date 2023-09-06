@@ -1,9 +1,9 @@
 import { useAppDispatch } from "../../../../hooks/redux-hooks";
 import { toggleTodoComplete, removeTodo } from "../../../../store/slices/todoSlices"
-import { BsCheckCircle } from 'react-icons/bs'
 import { MdDone } from 'react-icons/md'
 import { AiFillDelete } from 'react-icons/ai'
 import styled from './TodoItem.module.css'
+import { useState } from "react";
 
 interface TodoItemProps {
   id: string,
@@ -14,15 +14,28 @@ interface TodoItemProps {
 const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
   const dispatch = useAppDispatch();
 
+  const handleToggleComplete = () => {
+    if (!completed) {
+      dispatch(toggleTodoComplete(id));
+    }
+  };
+
   return (
     <div className={styled.todo__item}>
       <span>{title}</span>
       <div>
-        <span onClick={() => dispatch(toggleTodoComplete(id))}><MdDone /></span>
-        <span onClick={() => dispatch(removeTodo(id))}> <AiFillDelete /></span>
+        {!completed ? (
+          <span onClick={handleToggleComplete}>
+            <MdDone />
+          </span>
+        ) : null}
+        <span onClick={() => dispatch(removeTodo(id))}>
+          <AiFillDelete />
+        </span>
       </div>
     </div>
   );
 };
+
 
 export { TodoItem }
