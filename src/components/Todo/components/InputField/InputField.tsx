@@ -27,3 +27,4 @@ const InputField: React.FC<NewTodoFormProps> = ({ value, updateText, handleActio
   };
 
 export { InputField }
+

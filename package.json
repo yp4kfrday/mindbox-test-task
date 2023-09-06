@@ -1,8 +1,8 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://yp4kfrday.github.io/mindbox-test-task",
+  "private": false,
+  "homepage": "https://yp4kfrday.github.io/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
