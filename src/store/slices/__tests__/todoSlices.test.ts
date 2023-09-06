@@ -29,7 +29,7 @@ describe('todoSlice reducers', () => {
         const nextState = todoReducer(initialState, toggleTodoComplete('1'));
     
         // Ожидаем, что состояние задачи изменилось
-        expect(nextState.list.length).toBe(0); // Задача должна быть удалена из list
+        expect(nextState.list.length).toBe(0);
         expect(nextState.completedList.length).toBe(1);
         expect(nextState.completedList[0].id).toBe('1');
         expect(nextState.completedList[0].completed).toBe(true);
