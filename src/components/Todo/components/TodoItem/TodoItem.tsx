@@ -28,7 +28,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
 						<MdDone />
 					</span>
 				)}
-				<span className={styled.icon} onClick={handleToggleComplete}>
+				<span className={styled.icon} onClick={() => dispatch(removeTodo(id))}>
 					<AiFillDelete />
 				</span>
 			</div>
